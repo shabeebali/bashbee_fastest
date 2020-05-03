@@ -1,0 +1,126 @@
+.nav-toggle > span{
+    visibility: hidden;
+}
+.header.links > li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.panel.header{
+    width: 100%;
+}
+input#search {
+    width: calc(100% - 35px);
+}
+.header .nav-link{
+    text-transform: none;
+}
+.minicart-overlay{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.minicart-wrapper.active .minicart-overlay{
+    width: 100%;
+    opacity: 0.8;
+
+}
+div#minicart-content-wrapper {
+    padding: 1rem;
+    position: relative;
+}
+.block-minicart {
+    position: fixed;
+    top: 0;
+    height:100%;
+    color: #000;
+    background: #fff;
+    padding: 0;
+    width: 380px;
+    right: -380px;
+    transition:right 0.3s;
+    z-index: 3;
+    max-width: 100%;
+}
+
+button#btn-minicart-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0px;
+}
+button#btn-minicart-close::after {
+    font-family: 'Material Icons';
+    content: "\e5cd";
+    font-size: 24px;
+}
+.minicart-items-wrapper {
+    /*overflow-x: hidden;*/
+    overflow-y: scroll;
+}
+span.minicart-price .price {
+    font-weight: 900;
+    color: #ad1457 !important;
+    font-size: 18px;
+}
+.product.options .price {
+    color: #ad1457 !important;
+    font-weight: 900;
+}
+.minicart-wrapper span.counter.qty {
+    position: absolute;
+    top: -12px;
+    left: 30px;
+}
+.form.minisearch{
+    width: 100%;
+}
+.minicart-wrapper .loading-mask img{
+    position: absolute;
+    width: 20px;
+    right: 6px;    
+}
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+    input#search {
+        width: calc(100% - 100px);
+    }
+    .form.minisearch{
+        width: auto;
+    }
+    ul.header.links.dropdown-menu li {
+        display: block;
+        width: 100%;
+        padding: 0.25rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+    }
+    .welcome.dropdown .sign-out + .secondary {
+        display: none;
+    }
+    .nav-sections .section-item-title{
+        display:none;
+    }
+
+    ul.submenu{
+        display:none;
+    }
+}

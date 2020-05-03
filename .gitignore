@@ -1,0 +1,8 @@
+*
+!/.gitignore
+!*/
+!app/code/Bashbee/**
+!app/design/frontend/Bashbee/**
+/dev
+/lib
+/vendor

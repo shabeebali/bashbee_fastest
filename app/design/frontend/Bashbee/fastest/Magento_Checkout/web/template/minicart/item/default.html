@@ -1,0 +1,115 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<li class="item product product-item py-4 border-bottom" data-role="product-item">
+    <div class="product row mx-0">
+        <!-- ko if: product_has_url -->
+        <a data-bind="attr: {href: product_url, title: product_name}" tabindex="-1" class="product-item-photo col-4">
+            <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+            <!-- /ko -->
+        </a>
+        <!-- /ko -->
+        <!-- ko ifnot: product_has_url -->
+        <span class="product-item-photo col-4">
+            <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+            <!-- /ko -->
+        </span>
+        <!-- /ko -->
+
+        <div class="product-item-details col-8 row px-0">
+            <strong class="product-item-name col-12">
+                <!-- ko if: product_has_url -->
+                <a data-bind="attr: {href: product_url}, html: product_name"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: product_has_url -->
+                    <!-- ko text: product_name --><!-- /ko -->
+                <!-- /ko -->
+            </strong>
+
+            <!-- ko if: options.length -->
+            <div class="product options col-12" data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>
+                <span data-role="title" class="toggle"><!-- ko i18n: 'See Details' --><!-- /ko --></span>
+
+                <div data-role="content" class="content">
+                    <strong class="subtitle"><!-- ko i18n: 'Options Details' --><!-- /ko --></strong>
+                    <dl class="product options list">
+                        <!-- ko foreach: { data: options, as: 'option' } -->
+                        <dt class="label"><!-- ko text: option.label --><!-- /ko --></dt>
+                        <dd class="values">
+                            <!-- ko if: Array.isArray(option.value) -->
+                                <span data-bind="html: option.value.join('<br>')"></span>
+                            <!-- /ko -->
+                            <!-- ko if: (!Array.isArray(option.value) && option.option_type == 'file') -->
+                                <span data-bind="html: option.value"></span>
+                            <!-- /ko -->
+                            <!-- ko if: (!Array.isArray(option.value) && option.option_type != 'file') -->
+                                <span data-bind="text: option.value"></span>
+                            <!-- /ko -->
+                        </dd>
+                        <!-- /ko -->
+                    </dl>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <div class="product-item-pricing col-8 pr-0">
+                <!-- ko if: canApplyMsrp -->
+
+                <div class="details-map">
+                    <span class="label" data-bind="i18n: 'Price'"></span>
+                    <span class="value" data-bind="i18n: 'See price before order confirmation.'"></span>
+                </div>
+                <!-- /ko -->
+                <!-- ko ifnot: canApplyMsrp -->
+                <!-- ko foreach: $parent.getRegion('priceSidebar') -->
+                    <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
+                <!-- /ko -->
+                <!-- /ko -->
+
+                <div class="details-qty qty d-flex align-items-center">
+                    <label class="label mb-0 mr-2" data-bind="i18n: 'Qty', attr: {
+                           for: 'cart-item-'+item_id+'-qty'}"></label>
+                    <input data-bind="attr: {
+                           id: 'cart-item-'+item_id+'-qty',
+                           'data-cart-item': item_id,
+                           'data-item-qty': qty,
+                           'data-cart-item-id': product_sku
+                           }, value: qty"
+                           type="number"
+                           size="4"
+                           class="item-qty cart-item-qty w-50 form-control">
+                    <button data-bind="attr: {
+                           id: 'update-cart-item-'+item_id,
+                           'data-cart-item': item_id,
+                           title: $t('Update')
+                           }"
+                            class="update-cart-item btn btn-link grey-text px-0"
+                            style="display: none">
+                        <span class="material-icons grey-text">refresh</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="product actions col-4 pr-2 d-flex flex-column justify-content-between">
+                <!-- ko if: is_visible_in_site_visibility -->
+                <div class="primary d-flex justify-content-end">
+                    <a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="action edit ">
+                        <span class="material-icons grey-text" style="font-size:16px;">create</span>
+                    </a>
+                </div>
+                <!-- /ko -->
+                <div class="secondary d-flex justify-content-end">
+                    <a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
+                       class="action delete ">
+                       <span class="material-icons grey-text" style="font-size:16px;">delete</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,17 @@
+<div class="account-dropdown dropdown-menu dropdown-menu-right">
+    <div class="row mx-0">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <?= $block->getChildHtml('custom-authorization-link'); ?>
+            <span class="secondary">
+                <small>
+                    Don't have account? <?= $block->getChildHtml('custom-register-link'); ?>
+                </small>
+            </span>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <?= $block->getChildHtml('top.links') ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+<form class="form minisearch form-inline my-0 flex-grow-1 d-flex justify-content-between order-3 order-md-2" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
+    <input id="search"
+            data-mage-init='{"quickSearch":{
+                "formSelector":"#search_mini_form",
+                "url":"<?= $block->escapeUrl($helper->getSuggestUrl())?>",
+                "destinationSelector":"#search_autocomplete",
+                "minSearchLength":"<?= $block->escapeHtml($helper->getMinQueryLength()) ?>"}
+            }'
+            type="text"
+            name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+            value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
+            placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>"
+            class="input-text form-control"
+            maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+            role="combobox"
+            aria-label="Search"
+            aria-haspopup="false"
+            aria-autocomplete="both"
+            autocomplete="off"
+            aria-expanded="false"/>
+    <div id="search_autocomplete" class="search-autocomplete"></div>
+    
+    <button type="submit"
+        title="<?= $block->escapeHtmlAttr(__('Search')) ?>"
+        class="action search btn btn-link my-0 mr-n3 mr-md-0"
+        aria-label="Search"
+    >
+        <span class="material-icons white-text" style="line-height:unset;">search</span>
+    </button>
+    <?= $block->getChildHtml() ?>
+</form>

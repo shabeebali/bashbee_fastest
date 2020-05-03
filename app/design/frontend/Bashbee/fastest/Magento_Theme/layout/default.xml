@@ -1,0 +1,57 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="top.links" destination="account-dropdown"/>
+        <move element="top.search" destination="header-wrapper" after="logo"/>
+        <move element="minicart" destination="header-wrapper" after="-"/>
+        <move element="store_language" destination="header.navbar" after="currency"/>
+        <move element="currency" destination="header.navbar" before="-"/>
+        <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="authorization-link" remove="true"/>
+        <referenceBlock name="register-link" remove="true"/>
+        <referenceBlock name="skip_to_content" remove="true"/>
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">header links</argument>
+            </arguments>
+            <block class="Magento\Framework\View\Element\Html\Link" name="myorders-top-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Orders</argument>
+                    <argument name="path" xsi:type="string">sales/order/history</argument>
+                    <argument name="class" xsi:type="string">dropdown-item</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="my-account-link" >
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                <argument name="sortOrder" xsi:type="number">110</argument>
+                <argument name="class" xsi:type="string">dropdown-item</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="wish-list-link" >
+            <arguments>
+                <argument name="sortOrder" xsi:type="number">60</argument>
+                <argument name="class" xsi:type="string">dropdown-item</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="header-wrapper" htmlClass="header navbar navbar-expand-md navbar-dark justify-content-start white-text grey darken-4" htmlTag="nav">
+            <container name="header.navbar.wrapper" htmlClass="order-md-3 d-none d-md-block" htmlTag="div">
+                <container name="header.navbar" htmlTag="ul" htmlClass="navbar-nav d-flex pr-0" after="logo">
+                    <block class="Magento\Theme\Block\Html\Header" name="header-message" as="header" after="store_language">
+                        <arguments>
+                            <argument name="show_part" xsi:type="string">welcome</argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Template" name="account-dropdown" template="Magento_Theme::html/accountdropdown.phtml">
+                            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="custom-authorization-link" template="Magento_Customer::account/link/custom-authorization.phtml">
+                                <arguments>
+                                    <argument name="class" xsi:type="string">btn pink darken-4 w-100 white-text</argument>
+                                </arguments>                            
+                            </block>
+                            <block class="Magento\Customer\Block\Account\RegisterLink" name="custom-register-link" template="Magento_Customer::account/link/custom-register.phtml"/>
+                        </block>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

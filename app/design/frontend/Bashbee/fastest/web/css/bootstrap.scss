@@ -1,0 +1,76 @@
+/*!
+ * Bootstrap v4.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+@import "bootstrap-components/functions";
+@import "bootstrap-components/variables";
+@import "bootstrap-components/mixins";
+@import "bootstrap-components/root";
+@import "bootstrap-components/reboot";
+@import "bootstrap-components/type";
+@import "bootstrap-components/images";
+@import "bootstrap-components/code";
+@import "bootstrap-components/grid";
+@import "bootstrap-components/tables";
+@import "bootstrap-components/forms";
+@import "bootstrap-components/buttons";
+@import "bootstrap-components/transitions";
+@import "bootstrap-components/dropdown";
+@import "bootstrap-components/button-group";
+@import "bootstrap-components/input-group";
+@import "bootstrap-components/custom-forms";
+@import "bootstrap-components/nav";
+@import "bootstrap-components/navbar";
+@import "bootstrap-components/card";
+@import "bootstrap-components/breadcrumb";
+@import "bootstrap-components/pagination";
+@import "bootstrap-components/badge";
+@import "bootstrap-components/jumbotron";
+@import "bootstrap-components/alert";
+@import "bootstrap-components/progress";
+@import "bootstrap-components/media";
+@import "bootstrap-components/list-group";
+@import "bootstrap-components/close";
+@import "bootstrap-components/toasts";
+@import "bootstrap-components/modal";
+@import "bootstrap-components/tooltip";
+@import "bootstrap-components/popover";
+@import "bootstrap-components/carousel";
+@import "bootstrap-components/spinners";
+@import "bootstrap-components/utilities";
+@import "bootstrap-components/print";
+
+/*
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@import "bootstrap-components/functions";
+@import "bootstrap-components/variables";
+
+@import "bootstrap-components/mixins";
+
+@import "bootstrap-components/grid";
+@import "bootstrap-components/utilities/display";
+@import "bootstrap-components/utilities/flex";
+@import "bootstrap-components/utilities/spacing";
+@import "bootstrap-components/grid";
+@import "bootstrap-components/transitions";
+@import "bootstrap-components/dropdown";
+@import "bootstrap-components/button-group";
+@import "bootstrap-components/input-group";
+@import "bootstrap-components/custom-forms";
+@import "bootstrap-components/nav";
+@import "bootstrap-components/navbar";
+@import "bootstrap-components/buttons";
+*/

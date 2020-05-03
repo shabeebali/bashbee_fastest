@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+ /** @var \Magento\CatalogSearch\Helper\Data $helper */
+$helper = $this->helper(\Magento\CatalogSearch\Helper\Data::class);
+?>
+<div class="nested d-none d-md-block">
+    <a class="action advanced" data-toggle="tooltip" data-placement="bottom" title="<?= $block->escapeHtml(__('Advanced Search')) ?>" href="<?= $block->escapeUrl($helper->getAdvancedSearchUrl()) ?>" data-action="advanced-search">
+        <i class="material-icons white-text" style="line-height:unset;">settings</i>
+    </a>
+</div>
